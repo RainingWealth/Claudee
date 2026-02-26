@@ -1,0 +1,26 @@
+{
+  "demo_funds": [
+    {
+      "internal_code": "DEMO_SPY",
+      "ticker": "SPY",
+      "name": "SPDR S&P 500 ETF Trust",
+      "description": "Tracks the S&P 500 Index. One of the largest and most liquid ETFs in the world.",
+      "data_source": "yfinance"
+    },
+    {
+      "internal_code": "DEMO_VWRA",
+      "ticker": "VWRA.L",
+      "name": "Vanguard FTSE All-World UCITS ETF",
+      "description": "Provides exposure to developed and emerging market equities globally.",
+      "data_source": "yfinance"
+    },
+    {
+      "internal_code": "DEMO_PRIVATE",
+      "ticker": null,
+      "name": "Sample Private Fund",
+      "description": "Demonstrates the CSV upload feature with synthetic balanced fund data.",
+      "data_source": "csv",
+      "csv_file": "sample_nav.csv"
+    }
+  ]
+}
