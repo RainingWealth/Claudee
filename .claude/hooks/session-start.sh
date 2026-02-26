@@ -11,6 +11,18 @@ echo "Starting session setup..."
 # Detect and install dependencies based on what's present in the project
 cd "${CLAUDE_PROJECT_DIR:-$(pwd)}"
 
+# Install marketing skills from coreyhaines31/marketingskills
+echo "Installing marketing skills..."
+SKILLS_DIR=".claude/skills"
+mkdir -p "$SKILLS_DIR"
+if [ -d "/tmp/marketingskills" ]; then
+  rm -rf /tmp/marketingskills
+fi
+git clone --depth 1 https://github.com/coreyhaines31/marketingskills.git /tmp/marketingskills 2>/dev/null
+cp -r /tmp/marketingskills/skills/* "$SKILLS_DIR/"
+rm -rf /tmp/marketingskills
+echo "Marketing skills installed successfully."
+
 # Node.js / npm
 if [ -f "package-lock.json" ]; then
   echo "Installing npm dependencies..."
