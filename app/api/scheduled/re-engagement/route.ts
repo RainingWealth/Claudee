@@ -3,11 +3,14 @@ import { runReEngagementJob } from '@/lib/jobs/re-engagement'
 
 /**
  * Re-engagement scheduled endpoint.
- * Called every 30 minutes by Netlify Scheduled Functions.
- * Protected by CRON_SECRET to prevent unauthorized triggering.
+ * Called every 30 minutes by Vercel Cron (vercel.json) or Netlify Scheduled Functions.
+ * Vercel sends:  Authorization: Bearer <CRON_SECRET>
+ * Manual/Netlify sends: x-cron-secret: <CRON_SECRET>
  */
 export async function POST(req: NextRequest) {
-  const secret = req.headers.get('x-cron-secret') ?? req.nextUrl.searchParams.get('secret')
+  const authHeader = req.headers.get('authorization') ?? ''
+  const bearerToken = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : null
+  const secret = bearerToken ?? req.headers.get('x-cron-secret') ?? req.nextUrl.searchParams.get('secret')
 
   if (secret !== process.env.CRON_SECRET) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })

@@ -1,0 +1,12 @@
+{
+  "crons": [
+    {
+      "path": "/api/scheduled/re-engagement",
+      "schedule": "*/30 * * * *"
+    },
+    {
+      "path": "/api/scheduled/voice-runner",
+      "schedule": "* * * * *"
+    }
+  ]
+}
