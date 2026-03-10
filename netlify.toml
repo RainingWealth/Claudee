@@ -1,0 +1,13 @@
+[build]
+  base    = "fund-tracker/frontend"
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Redirect all API calls to the backend (set NEXT_PUBLIC_API_URL in Netlify env vars)
+# The Next.js rewrite in next.config.ts handles /api/v1/* → backend URL at runtime
