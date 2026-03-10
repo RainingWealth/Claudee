@@ -1411,6 +1411,25 @@ p:last-child {
   top: calc(80px + var(--space-6));
 }
 
+/* --- Contact Page Grid --- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
 /* --- Utility classes --- */
 .sr-only {
   position: absolute;
