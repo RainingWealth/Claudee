@@ -1,0 +1,187 @@
+/* ============================================================
+   Scroll Animations — CSS-only with Intersection Observer triggers
+   Classes are toggled by js/main.js using IntersectionObserver
+   ============================================================ */
+
+/* --- Base state: elements start hidden --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delays for child elements */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* --- Slide from left --- */
+.reveal--left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal--left.reveal--visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --- Slide from right --- */
+.reveal--right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal--right.reveal--visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --- Scale up (for cards) --- */
+.reveal--scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal--scale.reveal--visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* --- Fade only (no movement) --- */
+.reveal--fade {
+  opacity: 0;
+  transform: none;
+  transition: opacity 0.7s ease;
+}
+
+.reveal--fade.reveal--visible {
+  opacity: 1;
+}
+
+/* --- Hero entrance animations (play on page load) --- */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes heroPulse {
+  0%, 100% { opacity: 0.06; }
+  50% { opacity: 0.12; }
+}
+
+.hero__badge {
+  animation: heroFadeUp 0.7s ease 0.2s both;
+}
+
+.hero__title {
+  animation: heroFadeUp 0.7s ease 0.4s both;
+}
+
+.hero__subtitle {
+  animation: heroFadeUp 0.7s ease 0.6s both;
+}
+
+.hero__actions {
+  animation: heroFadeUp 0.7s ease 0.8s both;
+}
+
+.hero__decor {
+  animation: heroPulse 6s ease-in-out infinite, heroFadeIn 1s ease 1s both;
+}
+
+/* Page hero entrance */
+.page-hero h1 {
+  animation: heroFadeUp 0.6s ease 0.2s both;
+}
+
+.page-hero .subheading {
+  animation: heroFadeUp 0.6s ease 0.1s both;
+}
+
+.page-hero p {
+  animation: heroFadeUp 0.6s ease 0.4s both;
+}
+
+/* --- Floating animation for decorative elements --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* --- Subtle shimmer for gold accents --- */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-accent-gold) 0%,
+    var(--color-accent-gold-light) 50%,
+    var(--color-accent-gold) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* --- Reduced motion preference --- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal--left,
+  .reveal--right,
+  .reveal--scale,
+  .reveal--fade {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero__badge,
+  .hero__title,
+  .hero__subtitle,
+  .hero__actions,
+  .hero__decor,
+  .page-hero h1,
+  .page-hero .subheading,
+  .page-hero p {
+    animation: none;
+    opacity: 1;
+  }
+
+  .float {
+    animation: none;
+  }
+
+  .shimmer {
+    animation: none;
+  }
+}
