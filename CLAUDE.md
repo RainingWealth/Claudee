@@ -4,81 +4,76 @@ This file provides guidance to Claude Code when working with this repository.
 
 ## Project Overview
 
-<!-- TODO: Add a brief description of your project here -->
+Multi-agent marketing system powered by Claude. A Marketing Director (orchestrator) delegates to 4 specialist agents: Content Writer, Social Media Manager, Market Researcher, and Sales Coach (Lusi + NEPQ methodology).
 
 ## Development Setup
 
-<!-- TODO: Add any setup instructions specific to your project -->
-
 ### Prerequisites
-
-<!-- List any tools, runtimes, or services required -->
+- Python 3.10+
+- Anthropic API key (`ANTHROPIC_API_KEY` environment variable)
 
 ## Common Commands
 
 ### Install Dependencies
-
-<!-- Add the command(s) to install project dependencies -->
 ```bash
-# Example: npm install
-# Example: pip install -r requirements.txt
-# Example: bundle install
+pip install -r requirements.txt
 ```
 
-### Run Tests
-
-<!-- Add the command to run the test suite -->
+### Run (Interactive)
 ```bash
-# Example: npm test
-# Example: pytest
-# Example: go test ./...
+python main.py
 ```
 
-### Run Linter / Formatter
-
-<!-- Add the command to lint or format code -->
+### Run (One-shot)
 ```bash
-# Example: npm run lint
-# Example: ruff check .
-# Example: golangci-lint run
+python main.py "Your marketing request here"
 ```
 
-### Build
-
-<!-- Add the command to build the project, if applicable -->
+### Syntax Check
 ```bash
-# Example: npm run build
-# Example: go build ./...
+python -c "from agents.orchestrator import Orchestrator; print('OK')"
 ```
 
 ## Project Structure
 
-<!-- TODO: Describe the key directories and files -->
-
 ```
 .
-├── .claude/
-│   ├── hooks/
-│   │   └── session-start.sh   # Auto-installs dependencies on session start
-│   └── settings.json          # Claude Code settings
-└── CLAUDE.md                  # This file
+├── main.py                       # CLI entry point (interactive + one-shot)
+├── requirements.txt              # anthropic>=0.52.0
+├── agents/
+│   ├── __init__.py
+│   ├── base.py                   # BaseAgent with agentic loop + knowledge loading
+│   ├── orchestrator.py           # Marketing Director (Opus) + delegation tools
+│   ├── content_writer.py         # Blog posts, copy, emails, ads (Sonnet)
+│   ├── social_media_manager.py   # Platform strategies, engagement (Sonnet)
+│   ├── market_researcher.py      # Competitor/trend/audience analysis (Sonnet)
+│   └── sales_coach.py            # Lusi SAPT/IBCT/HNW + NEPQ system (Sonnet)
+├── tools/
+│   ├── __init__.py
+│   └── web.py                    # Server-side web_search + web_fetch definitions
+├── knowledge/                    # Drop .md/.txt files here for agent context
+│   ├── README.md
+│   └── references/               # Sales methodology docs (loaded by Sales Coach)
+└── CLAUDE.md
 ```
 
 ## Architecture & Key Conventions
 
-<!-- TODO: Document important architectural decisions, patterns, or conventions -->
+- **Orchestrator pattern**: Marketing Director (Opus 4.6) analyzes requests and delegates to specialist agents (Sonnet 4.6) via tool_use
+- **Server-side web tools**: web_search and web_fetch are handled by Anthropic — no API keys needed
+- **Agentic loop**: BaseAgent handles end_turn, pause_turn, and tool_use stop reasons with max 20 iterations
+- **Knowledge injection**: All .md/.txt files in `knowledge/` are loaded into agent system prompts at startup
+- **Sales methodology**: All agents share core sales psychology principles; Sales Coach has full Lusi + NEPQ system
+- **Streaming**: Orchestrator uses streaming to prevent HTTP timeouts on long multi-agent runs
 
 ## Environment Variables
 
-<!-- TODO: List any required or optional environment variables -->
-
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `EXAMPLE_VAR` | Description of the variable | `default_value` |
+| `ANTHROPIC_API_KEY` | Anthropic API key (required) | — |
 
 ## Notes for Claude
 
-- Always run tests after making changes
 - Keep commits focused and atomic
 - Follow existing code style and conventions
 - When in doubt, prefer clarity over cleverness
