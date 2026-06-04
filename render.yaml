@@ -1,3 +1,7 @@
+databases:
+  - name: fund-tracker-db
+    plan: free          # 1 GB Postgres, free tier (expires after 30 days — upgrade to keep)
+
 services:
   - type: web
     name: fund-tracker-backend
@@ -7,7 +11,9 @@ services:
     healthCheckPath: /health
     envVars:
       - key: DATABASE_URL
-        value: sqlite:///./fund_tracker.db
+        fromDatabase:
+          name: fund-tracker-db
+          property: connectionString
       - key: FRONTEND_URL
         sync: false   # Set this to your Netlify URL after first deploy
       - key: DEMO_MODE

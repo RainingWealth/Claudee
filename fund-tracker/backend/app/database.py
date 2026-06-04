@@ -6,6 +6,10 @@ from .config import get_settings
 def _get_engine():
     settings = get_settings()
     url = settings.DATABASE_URL
+    # Render (and some other hosts) hand out postgres:// URLs, but SQLAlchemy 2.0
+    # only recognises the postgresql:// scheme.
+    if url.startswith("postgres://"):
+        url = url.replace("postgres://", "postgresql://", 1)
     kwargs = {}
     if url.startswith("sqlite"):
         kwargs["connect_args"] = {"check_same_thread": False}
