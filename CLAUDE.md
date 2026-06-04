@@ -4,81 +4,140 @@ This file provides guidance to Claude Code when working with this repository.
 
 ## Project Overview
 
-<!-- TODO: Add a brief description of your project here -->
+An AI-powered **Marketing Agent** for consulting and professional services businesses.
+
+The agent autonomously generates complete marketing campaigns using:
+- **29 installed marketing skill modules** (paid-ads, cold-email, email-sequence, copywriting, social-content, marketing-psychology, analytics-tracking, etc.)
+- **3-angle campaign structure** (awareness/problem → specific trigger → identity/aspiration)
+- **Claude claude-sonnet-4-6** via the Anthropic API for all content generation
+- **Perplexity API** for real-time market research
+
+Each campaign produces: Facebook/Meta ads, cold call scripts, WhatsApp follow-up sequences, email nurture sequences, social media content calendar, landing page copy, and a full KPI/tracking report — all saved as markdown files with optional PDF export.
 
 ## Development Setup
 
-<!-- TODO: Add any setup instructions specific to your project -->
-
 ### Prerequisites
 
-<!-- List any tools, runtimes, or services required -->
-
-## Common Commands
+- Python 3.11+
+- pip
+- Anthropic API key
+- Perplexity API key (optional — enables live market research)
 
 ### Install Dependencies
 
-<!-- Add the command(s) to install project dependencies -->
 ```bash
-# Example: npm install
-# Example: pip install -r requirements.txt
-# Example: bundle install
+pip install -r requirements.txt
 ```
 
-### Run Tests
+### Configure API Keys
 
-<!-- Add the command to run the test suite -->
 ```bash
-# Example: npm test
-# Example: pytest
-# Example: go test ./...
+cp .env.example .env
+# Edit .env and add your ANTHROPIC_API_KEY and PERPLEXITY_API_KEY
 ```
 
-### Run Linter / Formatter
+## Common Commands
 
-<!-- Add the command to lint or format code -->
+### Run a Full Marketing Campaign
+
 ```bash
-# Example: npm run lint
-# Example: ruff check .
-# Example: golangci-lint run
+python marketing_agent.py run \
+  --goal "Get 20 high-ticket consulting clients" \
+  --industry "Financial Advisory" \
+  --target "Mid-career professionals aged 35-50" \
+  --budget 5000 \
+  --campaign-name "advisory-q2-2026"
 ```
 
-### Build
+### List Installed Marketing Skills
 
-<!-- Add the command to build the project, if applicable -->
 ```bash
-# Example: npm run build
-# Example: go build ./...
+python marketing_agent.py skills
+```
+
+### List Available Tools
+
+```bash
+python marketing_agent.py tools-list
+```
+
+### Get Help
+
+```bash
+python marketing_agent.py --help
+python marketing_agent.py run --help
 ```
 
 ## Project Structure
 
-<!-- TODO: Describe the key directories and files -->
-
 ```
 .
+├── marketing_agent.py           # Main CLI entry point + agentic loop
+├── lib/
+│   ├── skills_loader.py         # Reads .claude/skills/*/SKILL.md at startup
+│   └── pdf_generator.py         # WeasyPrint PDF export
+├── tools/
+│   ├── __init__.py              # Tool registry (schemas + dispatch)
+│   ├── facebook_ads.py          # Facebook/Meta ad campaign generator
+│   ├── perplexity_research.py   # Perplexity API market research
+│   ├── cold_outreach.py         # Cold call scripts + WhatsApp sequences
+│   ├── email_campaigns.py       # Email nurture/sales sequences
+│   ├── content_calendar.py      # 4-week social media content calendar
+│   ├── copywriting.py           # AIDA/PAS/BAB copywriting framework
+│   └── campaign_reports.py      # Campaign KPIs, A/B tests, tracking setup
 ├── .claude/
 │   ├── hooks/
-│   │   └── session-start.sh   # Auto-installs dependencies on session start
-│   └── settings.json          # Claude Code settings
-└── CLAUDE.md                  # This file
+│   │   └── session-start.sh     # Auto-installs dependencies + 29 marketing skills
+│   ├── settings.json            # Claude Code settings
+│   └── skills/                  # 29 marketing skill modules (auto-installed)
+├── requirements.txt
+├── .env.example                 # API key template
+├── .gitignore
+└── outputs/                     # Generated campaign files (gitignored)
+    └── {campaign-name}/
+        ├── 00-research-*.md
+        ├── angle-1-awareness/
+        │   ├── 01-facebook-ads.md
+        │   └── 02-cold-outreach.md
+        ├── angle-2-trigger/  ...
+        ├── angle-3-aspiration/  ...
+        ├── 03-email-*.md
+        ├── 04-content-calendar.md
+        ├── 05-copy-*.md
+        ├── 06-campaign-report.md
+        └── pdfs/                # PDF versions of all files
 ```
 
 ## Architecture & Key Conventions
 
-<!-- TODO: Document important architectural decisions, patterns, or conventions -->
+### Agentic Loop
+`marketing_agent.py` runs a while loop calling the Claude API with `tools`. The agent decides which tools to call and in what order. The loop exits when `stop_reason == "end_turn"`.
+
+### Skills Injection
+`lib/skills_loader.py` reads `.claude/skills/*/SKILL.md` at startup and injects relevant methodology into each tool's handler prompt. The agent's Facebook ads use `paid-ads/SKILL.md`, cold scripts use `cold-email/SKILL.md`, etc.
+
+### Tool Pattern
+Each tool in `tools/` exports:
+- `TOOL_SCHEMA` — JSON schema for the Claude API `tools` list
+- `handle_*()` — Handler that receives `(tool_input: dict, skills_context: str)` and returns `str`
+
+### Output Structure
+Every tool call saves a `.md` file to `outputs/{campaign-name}/`. Files are prefixed with numbers for ordering. PDFs are generated at the end using WeasyPrint.
 
 ## Environment Variables
 
-<!-- TODO: List any required or optional environment variables -->
-
-| Variable | Description | Default |
+| Variable | Description | Required |
 |----------|-------------|---------|
-| `EXAMPLE_VAR` | Description of the variable | `default_value` |
+| `ANTHROPIC_API_KEY` | Claude API key for all content generation | Yes |
+| `PERPLEXITY_API_KEY` | Perplexity API key for live market research | Recommended |
 
 ## Notes for Claude
 
-- Always run tests after making changes
+- Always run `python marketing_agent.py skills` first to verify skill modules are loaded
+- The 29 skills in `.claude/skills/` are auto-installed by `session-start.sh` on remote sessions
+- Campaign outputs are gitignored — check `outputs/` directory locally
+- When adding new tools: add the schema + handler to `tools/`, then register in `tools/__init__.py`
+- Perplexity research falls back gracefully if API key is missing
+- WeasyPrint requires system dependencies on Linux: `apt-get install -y libpango-1.0-0 libcairo2`
 - Keep commits focused and atomic
 - Follow existing code style and conventions
-- When in doubt, prefer clarity over cleverness
