@@ -1,0 +1,34 @@
+# PDF field-to-web-form mapping configuration
+# Customize selectors to match your target website
+
+login:
+  url: "${WEBSITE_URL}/login"
+  username_selector: "#username"
+  password_selector: "#password"
+  submit_selector: "button[type='submit']"
+
+form:
+  url: "${WEBSITE_URL}/form"
+  fields:
+    - pdf_key: "date"
+      selector: "#date-picker"
+      type: "calendar"
+    - pdf_key: "name"
+      selector: "#full-name"
+      type: "text"
+    - pdf_key: "amount"
+      selector: "#amount"
+      type: "text"
+    - pdf_key: "reference"
+      selector: "#reference-number"
+      type: "text"
+  submit_selector: "button[type='submit']"
+
+# Calendar picker settings
+calendar:
+  trigger_selector: "#date-picker"
+  next_month_selector: ".calendar-next"
+  prev_month_selector: ".calendar-prev"
+  month_year_selector: ".calendar-title"
+  day_selector_template: "td[data-day='{day}']"
+  date_format: "%Y-%m-%d"
