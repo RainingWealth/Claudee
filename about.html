@@ -20,9 +20,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/styles.css">
@@ -137,7 +135,7 @@
         <div class="bio-section">
           <div class="bio-section__image reveal reveal--left" aria-hidden="true">
             <!-- Placeholder for professional headshot -->
-            &#128100;
+            <i data-lucide="user" class="lucide-icon"></i>
           </div>
           <div>
             <span class="subheading reveal">My Story</span>
@@ -165,19 +163,19 @@
 
         <div class="grid grid--3">
           <div class="card reveal reveal-delay-1" style="text-align: center;">
-            <div class="card__icon" style="margin: 0 auto var(--space-4);" aria-hidden="true">&#128065;</div>
+            <div class="card__icon" style="margin: 0 auto var(--space-4);" aria-hidden="true"><i data-lucide="eye" class="lucide-icon"></i></div>
             <h3 class="card__title">Listen First</h3>
             <p class="card__text">Every financial plan begins with understanding. Before I recommend any solution, I take the time to understand your unique situation, your concerns, and the goals that truly matter to you and your family.</p>
           </div>
 
           <div class="card reveal reveal-delay-2" style="text-align: center;">
-            <div class="card__icon" style="margin: 0 auto var(--space-4);" aria-hidden="true">&#127919;</div>
+            <div class="card__icon" style="margin: 0 auto var(--space-4);" aria-hidden="true"><i data-lucide="target" class="lucide-icon"></i></div>
             <h3 class="card__title">Plan with Precision</h3>
             <p class="card__text">Vague advice helps no one. I provide structured, actionable strategies built on rigorous analysis. Every recommendation is backed by expertise and tailored to your specific circumstances&mdash;not a one-size-fits-all template.</p>
           </div>
 
           <div class="card reveal reveal-delay-3" style="text-align: center;">
-            <div class="card__icon" style="margin: 0 auto var(--space-4);" aria-hidden="true">&#129309;</div>
+            <div class="card__icon" style="margin: 0 auto var(--space-4);" aria-hidden="true"><i data-lucide="handshake" class="lucide-icon"></i></div>
             <h3 class="card__title">Partner for Life</h3>
             <p class="card__text">Financial planning isn't a one-time transaction. I build long-term relationships with my clients, reviewing and refining strategies as your business grows, your family evolves, and your goals shift over time.</p>
           </div>
@@ -268,9 +266,9 @@
           <div class="footer__brand">Rayvern Chng</div>
           <p class="footer__desc">Certified financial advisor in Singapore specialising in business insurance, estate planning, financial advisory, and special needs planning for business owners and corporate leaders.</p>
           <div class="footer__socials mt-4">
-            <a href="#" class="footer__social" aria-label="LinkedIn">in</a>
-            <a href="#" class="footer__social" aria-label="Facebook">f</a>
-            <a href="#" class="footer__social" aria-label="Instagram">ig</a>
+            <a href="#" class="footer__social" aria-label="LinkedIn"><i data-lucide="linkedin" class="lucide-icon"></i></a>
+            <a href="#" class="footer__social" aria-label="Facebook"><i data-lucide="facebook" class="lucide-icon"></i></a>
+            <a href="#" class="footer__social" aria-label="Instagram"><i data-lucide="instagram" class="lucide-icon"></i></a>
           </div>
         </div>
         <div>
@@ -296,6 +294,8 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

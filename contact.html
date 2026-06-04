@@ -20,9 +20,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/styles.css">
@@ -154,7 +152,7 @@
 
             <div class="contact-methods">
               <div class="contact-method reveal reveal-delay-1">
-                <div class="contact-method__icon" aria-hidden="true">&#128172;</div>
+                <div class="contact-method__icon" aria-hidden="true"><i data-lucide="message-circle" class="lucide-icon"></i></div>
                 <div>
                   <div class="contact-method__title">WhatsApp</div>
                   <div class="contact-method__detail">Message me on WhatsApp for a quick response. Tap the link on mobile or scan the QR code.</div>
@@ -162,7 +160,7 @@
               </div>
 
               <div class="contact-method reveal reveal-delay-2">
-                <div class="contact-method__icon" aria-hidden="true">&#128222;</div>
+                <div class="contact-method__icon" aria-hidden="true"><i data-lucide="phone" class="lucide-icon"></i></div>
                 <div>
                   <div class="contact-method__title">Phone</div>
                   <div class="contact-method__detail">Call during business hours for an immediate conversation.</div>
@@ -170,7 +168,7 @@
               </div>
 
               <div class="contact-method reveal reveal-delay-3">
-                <div class="contact-method__icon" aria-hidden="true">&#9993;</div>
+                <div class="contact-method__icon" aria-hidden="true"><i data-lucide="mail" class="lucide-icon"></i></div>
                 <div>
                   <div class="contact-method__title">Email</div>
                   <div class="contact-method__detail">Send me an email and I'll respond within one business day.</div>
@@ -178,7 +176,7 @@
               </div>
 
               <div class="contact-method reveal reveal-delay-4">
-                <div class="contact-method__icon" aria-hidden="true">&#128205;</div>
+                <div class="contact-method__icon" aria-hidden="true"><i data-lucide="map-pin" class="lucide-icon"></i></div>
                 <div>
                   <div class="contact-method__title">Service Area</div>
                   <div class="contact-method__detail">Based in Singapore. I meet clients across the island — at your office, home, or a convenient location of your choice.</div>
@@ -215,9 +213,9 @@
           <div class="footer__brand">Rayvern Chng</div>
           <p class="footer__desc">Certified financial advisor in Singapore specialising in business insurance, estate planning, financial advisory, and special needs planning for business owners and corporate leaders.</p>
           <div class="footer__socials mt-4">
-            <a href="#" class="footer__social" aria-label="LinkedIn">in</a>
-            <a href="#" class="footer__social" aria-label="Facebook">f</a>
-            <a href="#" class="footer__social" aria-label="Instagram">ig</a>
+            <a href="#" class="footer__social" aria-label="LinkedIn"><i data-lucide="linkedin" class="lucide-icon"></i></a>
+            <a href="#" class="footer__social" aria-label="Facebook"><i data-lucide="facebook" class="lucide-icon"></i></a>
+            <a href="#" class="footer__social" aria-label="Instagram"><i data-lucide="instagram" class="lucide-icon"></i></a>
           </div>
         </div>
         <div>
@@ -243,6 +241,8 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

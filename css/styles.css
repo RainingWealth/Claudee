@@ -1,27 +1,28 @@
 /* ============================================================
    Rayvern Chng — Professional Services Website
    Design System & Core Styles
-   Color: Dark Teal & Silver | Typography: DM Serif Display + DM Sans
+   Color: Trust Blue & Orange CTA | Typography: IBM Plex Sans
+   Style: Trust & Authority
    ============================================================ */
 
 /* --- CSS Custom Properties (Design Tokens) --- */
 :root {
-  /* Colors */
-  --color-primary-dark: #0A5E5E;
-  --color-primary: #0D7377;
-  --color-primary-light: #5EADB0;
-  --color-primary-tint: #E8F4F4;
-  --color-charcoal: #1A1A2E;
-  --color-silver: #B0B8C1;
-  --color-silver-light: #E2E6EA;
-  --color-off-white: #F7F8FA;
+  /* Colors — Trust Blue palette */
+  --color-primary-dark: #1E40AF;
+  --color-primary: #2563EB;
+  --color-primary-light: #60A5FA;
+  --color-primary-tint: #EFF6FF;
+  --color-charcoal: #0F172A;
+  --color-silver: #64748B;
+  --color-silver-light: #E2E8F0;
+  --color-off-white: #F8FAFC;
   --color-white: #FFFFFF;
-  --color-accent-gold: #C9A84C;
-  --color-accent-gold-light: #E8D898;
+  --color-accent-gold: #F97316;
+  --color-accent-gold-light: #FDBA74;
 
-  /* Typography */
-  --font-heading: 'DM Serif Display', Georgia, 'Times New Roman', serif;
-  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Typography — IBM Plex Sans */
+  --font-heading: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
@@ -63,11 +64,11 @@
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(26, 26, 46, 0.06);
-  --shadow-md: 0 4px 12px rgba(26, 26, 46, 0.08);
-  --shadow-lg: 0 8px 30px rgba(26, 26, 46, 0.12);
-  --shadow-xl: 0 16px 48px rgba(26, 26, 46, 0.16);
-  --shadow-card: 0 2px 8px rgba(26, 26, 46, 0.06), 0 8px 24px rgba(26, 26, 46, 0.04);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 8px 30px rgba(15, 23, 42, 0.12);
+  --shadow-xl: 0 16px 48px rgba(15, 23, 42, 0.16);
+  --shadow-card: 0 2px 8px rgba(15, 23, 42, 0.06), 0 8px 24px rgba(15, 23, 42, 0.04);
 
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -75,9 +76,9 @@
   --transition-slow: 400ms ease;
 
   /* Glass effect */
-  --glass-bg: rgba(247, 248, 250, 0.85);
+  --glass-bg: rgba(248, 250, 252, 0.9);
   --glass-blur: blur(12px);
-  --glass-border: 1px solid rgba(176, 184, 193, 0.2);
+  --glass-border: 1px solid rgba(226, 232, 240, 0.4);
 
   /* Z-index layers */
   --z-nav: 1000;
@@ -145,7 +146,7 @@ input, textarea, select {
 /* --- Typography --- */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: var(--font-weight-regular);
+  font-weight: var(--font-weight-bold);
   line-height: 1.2;
   color: var(--color-charcoal);
 }
@@ -168,8 +169,10 @@ p:last-child {
 .text-lg { font-size: var(--text-lg); }
 .text-xl { font-size: var(--text-xl); }
 .text-silver { color: var(--color-silver); }
+.text-blue { color: var(--color-primary); }
 .text-teal { color: var(--color-primary); }
 .text-gold { color: var(--color-accent-gold); }
+.text-orange { color: var(--color-accent-gold); }
 .text-white { color: var(--color-white); }
 .text-center { text-align: center; }
 
@@ -329,7 +332,7 @@ p:last-child {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--color-accent-gold);
+  background-color: var(--color-primary-light);
   transition: width var(--transition-base);
 }
 
@@ -476,8 +479,8 @@ p:last-child {
 }
 
 .btn--primary:hover {
-  background-color: #b89640;
-  border-color: #b89640;
+  background-color: #EA580C;
+  border-color: #EA580C;
   color: var(--color-charcoal);
   box-shadow: var(--shadow-md);
   transform: translateY(-1px);
@@ -599,7 +602,7 @@ p:last-child {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-primary-dark) 50%, var(--color-primary) 100%);
+  background: linear-gradient(135deg, var(--color-charcoal) 0%, #1E3A5F 40%, var(--color-primary-dark) 100%);
   overflow: hidden;
 }
 
@@ -611,8 +614,8 @@ p:last-child {
   width: 100%;
   height: 100%;
   background:
-    radial-gradient(ellipse at 20% 80%, rgba(13, 115, 119, 0.3) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(10, 94, 94, 0.2) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 80%, rgba(37, 99, 235, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(30, 64, 175, 0.15) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -631,7 +634,7 @@ p:last-child {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--color-accent-gold);
-  border: 1px solid rgba(201, 168, 76, 0.4);
+  border: 1px solid rgba(249, 115, 22, 0.4);
   padding: var(--space-1) var(--space-4);
   border-radius: var(--radius-full);
   margin-bottom: var(--space-5);
@@ -698,7 +701,7 @@ p:last-child {
 
 /* Page Hero (for inner pages) */
 .page-hero {
-  background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-primary-dark) 100%);
+  background: linear-gradient(135deg, var(--color-charcoal) 0%, #1E3A5F 50%, var(--color-primary-dark) 100%);
   padding: var(--space-16) 0 var(--space-10);
   text-align: center;
   position: relative;
@@ -712,7 +715,7 @@ p:last-child {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at 50% 100%, rgba(13, 115, 119, 0.2) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 50% 100%, rgba(37, 99, 235, 0.15) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -732,7 +735,7 @@ p:last-child {
 }
 
 .page-hero .subheading {
-  color: var(--color-accent-gold);
+  color: var(--color-primary-light);
   position: relative;
   z-index: 1;
   margin-bottom: var(--space-3);
@@ -757,7 +760,7 @@ p:last-child {
 .credential-badge__icon {
   width: 28px;
   height: 28px;
-  background: linear-gradient(135deg, var(--color-accent-gold), var(--color-accent-gold-light));
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -768,7 +771,7 @@ p:last-child {
 }
 
 .credential-badge:hover {
-  border-color: var(--color-accent-gold);
+  border-color: var(--color-primary-light);
   box-shadow: var(--shadow-sm);
 }
 
@@ -783,7 +786,7 @@ p:last-child {
 }
 
 .credential-card:hover {
-  border-color: var(--color-accent-gold);
+  border-color: var(--color-primary-light);
   box-shadow: var(--shadow-md);
 }
 
@@ -791,7 +794,7 @@ p:last-child {
   width: 64px;
   height: 64px;
   margin: 0 auto var(--space-4);
-  background: linear-gradient(135deg, var(--color-accent-gold), var(--color-accent-gold-light));
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -901,7 +904,7 @@ p:last-child {
 
 /* --- CTA Band --- */
 .cta-band {
-  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  background: linear-gradient(135deg, #1E3A5F 0%, var(--color-primary-dark) 50%, var(--color-primary) 100%);
   padding: var(--space-10) 0;
   text-align: center;
 }
@@ -1008,7 +1011,7 @@ p:last-child {
 .form-textarea:focus,
 .form-select:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(13, 115, 119, 0.1);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .form-textarea {
@@ -1097,7 +1100,7 @@ p:last-child {
 .blog-card__image {
   width: 100%;
   height: 200px;
-  background: linear-gradient(135deg, var(--color-primary-tint), var(--color-primary-light));
+  background: linear-gradient(135deg, var(--color-primary-tint), rgba(96, 165, 250, 0.3));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1239,7 +1242,7 @@ p:last-child {
 .footer__social:hover {
   border-color: var(--color-primary-light);
   color: var(--color-primary-light);
-  background: rgba(13, 115, 119, 0.1);
+  background: rgba(37, 99, 235, 0.1);
 }
 
 /* --- Service Detail Sections (alternating) --- */
@@ -1274,7 +1277,7 @@ p:last-child {
 }
 
 .service-detail__visual {
-  background: linear-gradient(135deg, var(--color-primary-tint), rgba(94, 173, 176, 0.2));
+  background: linear-gradient(135deg, var(--color-primary-tint), rgba(96, 165, 250, 0.15));
   border-radius: var(--radius-xl);
   aspect-ratio: 4/3;
   display: flex;
@@ -1353,7 +1356,7 @@ p:last-child {
   aspect-ratio: 3/4;
   max-width: 360px;
   margin: 0 auto;
-  background: linear-gradient(135deg, var(--color-primary-tint), rgba(94, 173, 176, 0.3));
+  background: linear-gradient(135deg, var(--color-primary-tint), rgba(96, 165, 250, 0.2));
   border-radius: var(--radius-xl);
   display: flex;
   align-items: center;
@@ -1371,7 +1374,7 @@ p:last-child {
   left: 0;
   right: 0;
   height: 40%;
-  background: linear-gradient(to top, rgba(10, 94, 94, 0.1), transparent);
+  background: linear-gradient(to top, rgba(30, 64, 175, 0.08), transparent);
 }
 
 .about-preview__badges {
@@ -1400,7 +1403,7 @@ p:last-child {
   aspect-ratio: 3/4;
   max-width: 400px;
   margin: 0 auto;
-  background: linear-gradient(135deg, var(--color-primary-tint), rgba(94, 173, 176, 0.3));
+  background: linear-gradient(135deg, var(--color-primary-tint), rgba(96, 165, 250, 0.2));
   border-radius: var(--radius-xl);
   display: flex;
   align-items: center;
@@ -1428,6 +1431,73 @@ p:last-child {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+}
+
+/* --- Lucide Icons --- */
+.lucide-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  stroke-width: 2;
+}
+
+.card__icon .lucide-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.credential-badge__icon .lucide-icon,
+.credential-card__icon .lucide-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.contact-method__icon .lucide-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.service-detail__visual .lucide-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.service-detail__feature-icon .lucide-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.blog-card__image .lucide-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.about-preview__image .lucide-icon,
+.bio-section__image .lucide-icon {
+  width: 80px;
+  height: 80px;
+  opacity: 0.6;
+}
+
+.testimonial-card__stars .lucide-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.footer__social .lucide-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.faq-question__icon .lucide-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.hero__decor .lucide-icon {
+  width: 48px;
+  height: 48px;
 }
 
 /* --- Utility classes --- */
