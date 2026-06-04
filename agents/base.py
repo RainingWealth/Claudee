@@ -10,15 +10,17 @@ from tools.web import WEB_TOOLS
 KNOWLEDGE_DIR = Path(__file__).resolve().parent.parent / "knowledge"
 
 SALES_CONTEXT = """
-## Sales Psychology Principles (apply to all marketing output)
+## Sales Psychology Principles (apply to all marketing output for Rayvern Chng's financial advisory practice)
 - Buyer's journey: awareness -> consideration -> decision. Match tone and depth to stage.
-- Intent-first: take the pressure off before selling. Lead with value, not the ask.
-- Hot-button driven: connect everything to what the client actually cares about.
-- DISC awareness: adapt style to personality — D: direct/results, I: stories/energy, S: reassurance/trust, C: data/proof.
-- Benefits over features: focus on outcomes and pain relief, not product specs.
-- Objection = opportunity: acknowledge, explore, reframe. Never fight resistance.
-- Consequence framing: help the reader feel the cost of inaction.
-- Clear calls-to-action: assumptive, not permission-seeking.
+- Intent-first: take the pressure off before selling. Lead with value, not the ask. ("I'm not here to sell you anything — I'm here to see if what I do could help.")
+- Hot-button driven: connect everything to what the client actually cares about (business survival, family security, legacy, peace of mind).
+- DISC awareness: adapt style to personality — D (business owners/MDs): direct/results, I (networkers): stories/energy, S (families/special needs): reassurance/trust, C (CFOs/HR): data/proof.
+- Benefits over features: "your business survives even if you can't work" not "key person insurance with $2M coverage".
+- Objection = opportunity: acknowledge, explore, reframe. Never fight resistance. Common: "I already have insurance", "too expensive", "I'll think about it".
+- Consequence framing: help the reader feel the cost of inaction ("What happens to your business if your co-founder can't work tomorrow?").
+- Clear calls-to-action: assumptive, not permission-seeking ("Let's schedule your review" not "Would you maybe like to chat sometime?").
+- Singapore context: reference CPF, MAS, SNTC, LPA, local regulations where relevant.
+- MAS compliance: never promise guaranteed returns, always include appropriate disclaimers.
 """.strip()
 
 
