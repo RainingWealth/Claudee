@@ -29,6 +29,16 @@ python main.py
 python main.py "Your marketing request here"
 ```
 
+### LinkedIn DM Outreach (Interactive)
+```bash
+python linkedin_outreach.py
+```
+
+### LinkedIn DM Outreach (One-shot)
+```bash
+python linkedin_outreach.py "DM sequence for a CFO who attended my workshop"
+```
+
 ### Syntax Check
 ```bash
 python -c "from agents.orchestrator import Orchestrator; print('OK')"
@@ -39,6 +49,7 @@ python -c "from agents.orchestrator import Orchestrator; print('OK')"
 ```
 .
 ├── main.py                       # CLI entry point (interactive + one-shot)
+├── linkedin_outreach.py          # LinkedIn DM generator (interactive + one-shot)
 ├── requirements.txt              # anthropic>=0.52.0
 ├── agents/
 │   ├── __init__.py
@@ -47,10 +58,12 @@ python -c "from agents.orchestrator import Orchestrator; print('OK')"
 │   ├── content_writer.py         # Blog posts, copy, emails, ads (Sonnet)
 │   ├── social_media_manager.py   # Platform strategies, engagement (Sonnet)
 │   ├── market_researcher.py      # Competitor/trend/audience analysis (Sonnet)
-│   └── sales_coach.py            # Lusi SAPT/IBCT/HNW + NEPQ system (Sonnet)
+│   ├── sales_coach.py            # Lusi SAPT/IBCT/HNW + NEPQ system (Sonnet)
+│   └── linkedin_dm_writer.py     # LinkedIn DM outreach sequences (Sonnet)
 ├── tools/
 │   ├── __init__.py
-│   └── web.py                    # Server-side web_search + web_fetch definitions
+│   ├── web.py                    # Server-side web_search + web_fetch definitions
+│   └── linkedin_dm.py            # Prospect types, DM sequences, campaign triggers
 ├── knowledge/                    # Drop .md/.txt files here for agent context
 │   ├── README.md
 │   └── references/               # Sales methodology docs (loaded by Sales Coach)

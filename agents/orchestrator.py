@@ -7,6 +7,7 @@ import anthropic
 
 from agents.base import BaseAgent
 from agents.content_writer import ContentWriter
+from agents.linkedin_dm_writer import LinkedInDMWriter
 from agents.market_researcher import MarketResearcher
 from agents.sales_coach import SalesCoach
 from agents.social_media_manager import SocialMediaManager
@@ -99,9 +100,31 @@ DELEGATION_TOOLS = [
             },
         },
     },
+    {
+        "type": "function",
+        "function": {
+            "name": "delegate_to_linkedin_dm_writer",
+            "description": (
+                "Delegate a task to the LinkedIn DM Writer specialist. Use for: LinkedIn outreach sequences, "
+                "connection request messages, DM follow-up sequences, LinkedIn prospecting messages, "
+                "warm introductions, post-event DM follow-ups, re-engagement messages, and any LinkedIn "
+                "direct messaging task. The writer generates personalised 7-stage DM sequences."
+            ),
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "task": {
+                        "type": "string",
+                        "description": "Detailed description of the prospect (type, role, company, context) and what kind of DM sequence is needed.",
+                    }
+                },
+                "required": ["task"],
+            },
+        },
+    },
 ]
 
-SYSTEM_PROMPT = """You are the Marketing Director for Rayvern Chng — a certified financial advisor (AWP/CFP, AEPP, MDRT) in Singapore. You are the strategic leader of Rayvern's marketing team with four specialist agents.
+SYSTEM_PROMPT = """You are the Marketing Director for Rayvern Chng — a certified financial advisor (AWP/CFP, AEPP, MDRT) in Singapore. You are the strategic leader of Rayvern's marketing team with five specialist agents.
 
 ## About Rayvern's Practice
 - **Services**: Business insurance, corporate financial planning, estate planning, special needs advisory
@@ -118,6 +141,7 @@ You analyze Rayvern's marketing requests, break them into focused sub-tasks, del
 2. **Social Media Manager** — LinkedIn (primary), Instagram, Facebook, TikTok — Singapore audience, MAS-compliant
 3. **Market Researcher** — Singapore financial advisory landscape, competitor analysis, audience insights, regulatory trends
 4. **Sales Coach** — Lusi + NEPQ methodology, adapted for financial advisory selling — scripts, objection handling, role-play, HNW strategy
+5. **LinkedIn DM Writer** — Personalised LinkedIn outreach sequences — connection requests, follow-up DMs, warm intros, re-engagement messages
 
 ## How You Work
 1. **Analyze** the request — understand the goal, audience segment, and any Singapore-specific constraints
@@ -133,6 +157,8 @@ You analyze Rayvern's marketing requests, break them into focused sub-tasks, del
 - You can also use web search directly for quick lookups or Singapore-specific fact-checks
 - For campaign planning: Market Researcher (audience/competitor insights) -> Sales Coach (messaging strategy) -> Content Writer (content) -> Social Media Manager (distribution)
 - When the user asks about selling, pitching, objections, closing, or prospecting — always involve the Sales Coach
+- When the user asks about LinkedIn DMs, outreach, connection messages, or prospecting on LinkedIn — delegate to the LinkedIn DM Writer
+- For LinkedIn campaigns: Market Researcher (identify targets) -> LinkedIn DM Writer (DM sequences) -> Sales Coach (objection prep for calls that result from DMs)
 - For special needs content — flag sensitivity and ensure empathetic tone across all outputs
 - Ensure all outputs comply with MAS regulatory requirements (no guaranteed returns, appropriate disclaimers)
 
@@ -156,6 +182,7 @@ class Orchestrator(BaseAgent):
             "delegate_to_social_media_manager": SocialMediaManager(),
             "delegate_to_market_researcher": MarketResearcher(),
             "delegate_to_sales_coach": SalesCoach(),
+            "delegate_to_linkedin_dm_writer": LinkedInDMWriter(),
         }
 
     def _get_tools(self) -> list[dict]:
