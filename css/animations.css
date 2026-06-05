@@ -1,6 +1,6 @@
 /* ============================================================
-   Scroll Animations — CSS-only with Intersection Observer triggers
-   Classes are toggled by js/main.js using IntersectionObserver
+   Scroll Animations & Dark Premium Effects
+   CSS-only with Intersection Observer triggers (js/main.js)
    ============================================================ */
 
 /* --- Base state: elements start hidden --- */
@@ -88,7 +88,7 @@
 
 @keyframes heroPulse {
   0%, 100% { opacity: 0.06; }
-  50% { opacity: 0.12; }
+  50% { opacity: 0.15; }
 }
 
 .hero__badge {
@@ -134,7 +134,28 @@
   animation: float 4s ease-in-out infinite;
 }
 
-/* --- Subtle shimmer for gold accents --- */
+/* --- Ambient glow blob animation --- */
+@keyframes blobDrift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, -20px) scale(1.05);
+  }
+  50% {
+    transform: translate(-10px, 20px) scale(0.95);
+  }
+  75% {
+    transform: translate(-30px, -10px) scale(1.02);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.08; }
+  50% { opacity: 0.15; }
+}
+
+/* --- Subtle shimmer for accent text --- */
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
@@ -143,14 +164,15 @@
 .shimmer {
   background: linear-gradient(
     90deg,
-    var(--color-accent-gold) 0%,
-    var(--color-accent-gold-light) 50%,
-    var(--color-accent-gold) 100%
+    var(--color-primary-light) 0%,
+    var(--color-accent-gold) 50%,
+    var(--color-primary-light) 100%
   );
   background-size: 200% 100%;
   animation: shimmer 3s ease-in-out infinite;
   -webkit-background-clip: text;
   background-clip: text;
+  color: transparent;
 }
 
 /* --- Reduced motion preference --- */
@@ -183,5 +205,6 @@
 
   .shimmer {
     animation: none;
+    color: var(--color-primary-light);
   }
 }
