@@ -13,14 +13,14 @@
   <meta property="og:title" content="Contact Rayvern Chng | Financial Advisor in Singapore">
   <meta property="og:description" content="Schedule a free, no-obligation consultation. Business insurance, financial advisory, estate planning, and special needs advisory for Singapore business owners.">
   <meta property="og:url" content="https://www.rayvernchng.com/contact.html">
-  <meta property="og:site_name" content="Rayvern Chng — Financial Advisory">
+  <meta property="og:site_name" content="Kairossky">
   <meta property="og:locale" content="en_SG">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/styles.css">
@@ -53,29 +53,38 @@
   <header>
     <nav class="nav nav--scrolled" id="mainNav" aria-label="Main navigation">
       <div class="container nav__inner">
-        <a href="index.html" class="nav__brand" aria-label="Rayvern Chng — Home">Rayvern Chng</a>
-
+        <a href="index.html" class="nav__brand">Kairossky</a>
         <ul class="nav__links" role="list">
           <li><a href="index.html" class="nav__link">Home</a></li>
           <li><a href="about.html" class="nav__link">About</a></li>
-          <li><a href="services.html" class="nav__link">Services</a></li>
+          <li class="nav__dropdown">
+            <a href="services.html" class="nav__link">Services</a>
+            <div class="nav__dropdown-menu">
+              <a href="services/wealth-management.html" class="nav__dropdown-link">Wealth Management</a>
+              <a href="services/estate-planning.html" class="nav__dropdown-link">Estate Planning</a>
+              <a href="services/corporate-risk.html" class="nav__dropdown-link">Corporate Risk Management</a>
+              <a href="services/management-risk.html" class="nav__dropdown-link">Management Risk</a>
+              <a href="services/special-needs.html" class="nav__dropdown-link">Special Needs Planning</a>
+            </div>
+          </li>
           <li><a href="resources.html" class="nav__link">Resources</a></li>
           <li><a href="contact.html" class="btn btn--primary btn--sm">Book a Consultation</a></li>
         </ul>
-
-        <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </nav>
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+      <div class="mobile-menu__brand">Kairossky</div>
       <a href="index.html" class="mobile-menu__link">Home</a>
       <a href="about.html" class="mobile-menu__link">About</a>
       <a href="services.html" class="mobile-menu__link">Services</a>
+      <a href="services/wealth-management.html" class="mobile-menu__sublink">Wealth Management</a>
+      <a href="services/estate-planning.html" class="mobile-menu__sublink">Estate Planning</a>
+      <a href="services/corporate-risk.html" class="mobile-menu__sublink">Corporate Risk Management</a>
+      <a href="services/management-risk.html" class="mobile-menu__sublink">Management Risk</a>
+      <a href="services/special-needs.html" class="mobile-menu__sublink">Special Needs Planning</a>
       <a href="resources.html" class="mobile-menu__link">Resources</a>
       <a href="contact.html" class="mobile-menu__link">Contact</a>
       <a href="contact.html" class="btn btn--primary btn--lg mt-6">Book a Consultation</a>
@@ -124,10 +133,11 @@
                 <label class="form-label" for="contact-service">Service of Interest</label>
                 <select id="contact-service" name="service" class="form-select" required>
                   <option value="" disabled selected>Select a service</option>
-                  <option value="business-insurance">Business &amp; Corporate Insurance</option>
-                  <option value="financial-advisory">Financial Advisory &amp; Wealth Planning</option>
-                  <option value="estate-planning">Estate Planning &amp; Succession</option>
-                  <option value="special-needs">Special Needs Advisory</option>
+                  <option value="wealth-management">Wealth Management</option>
+                  <option value="estate-planning">Estate Planning</option>
+                  <option value="corporate-risk">Corporate Risk Management</option>
+                  <option value="management-risk">Management Risk</option>
+                  <option value="special-needs">Special Needs Planning</option>
                   <option value="general">General Enquiry</option>
                 </select>
                 <span class="form-error">Please select a service.</span>
@@ -155,7 +165,7 @@
                 <div class="contact-method__icon" aria-hidden="true"><i data-lucide="message-circle" class="lucide-icon"></i></div>
                 <div>
                   <div class="contact-method__title">WhatsApp</div>
-                  <div class="contact-method__detail">Message me on WhatsApp for a quick response. Tap the link on mobile or scan the QR code.</div>
+                  <div class="contact-method__detail">Message me on WhatsApp for a quick response. <a href="https://wa.me/6583823194">+65 8382 3194</a></div>
                 </div>
               </div>
 
@@ -163,7 +173,7 @@
                 <div class="contact-method__icon" aria-hidden="true"><i data-lucide="phone" class="lucide-icon"></i></div>
                 <div>
                   <div class="contact-method__title">Phone</div>
-                  <div class="contact-method__detail">Call during business hours for an immediate conversation.</div>
+                  <div class="contact-method__detail">Call during business hours for an immediate conversation. <a href="tel:+6583823194">+65 8382 3194</a></div>
                 </div>
               </div>
 
@@ -210,12 +220,12 @@
     <div class="container">
       <div class="footer__top">
         <div>
-          <div class="footer__brand">Rayvern Chng</div>
-          <p class="footer__desc">Certified financial advisor in Singapore specialising in business insurance, estate planning, financial advisory, and special needs planning for business owners and corporate leaders.</p>
+          <div class="footer__brand">Kairossky</div>
+          <p class="footer__desc">Timely advice for your financial well-being. Rayvern Chng is a certified financial advisor in Singapore specialising in wealth management, estate planning, corporate risk, and special needs planning.</p>
           <div class="footer__socials mt-4">
-            <a href="#" class="footer__social" aria-label="LinkedIn"><i data-lucide="linkedin" class="lucide-icon"></i></a>
-            <a href="#" class="footer__social" aria-label="Facebook"><i data-lucide="facebook" class="lucide-icon"></i></a>
-            <a href="#" class="footer__social" aria-label="Instagram"><i data-lucide="instagram" class="lucide-icon"></i></a>
+            <a href="https://www.linkedin.com/in/rayvern" class="footer__social" aria-label="LinkedIn"><i data-lucide="linkedin" class="lucide-icon"></i></a>
+            <a href="https://www.facebook.com/Kairossky-105810341659005" class="footer__social" aria-label="Facebook"><i data-lucide="facebook" class="lucide-icon"></i></a>
+            <a href="https://wa.me/6583823194" class="footer__social" aria-label="WhatsApp"><i data-lucide="message-circle" class="lucide-icon"></i></a>
           </div>
         </div>
         <div>
@@ -228,14 +238,15 @@
         </div>
         <div>
           <div class="footer__heading">Services</div>
-          <a href="services.html#business-insurance" class="footer__link">Business Insurance</a>
-          <a href="services.html#financial-advisory" class="footer__link">Financial Advisory</a>
-          <a href="services.html#estate-planning" class="footer__link">Estate Planning</a>
-          <a href="services.html#special-needs" class="footer__link">Special Needs Advisory</a>
+          <a href="services/wealth-management.html" class="footer__link">Wealth Management</a>
+          <a href="services/estate-planning.html" class="footer__link">Estate Planning</a>
+          <a href="services/corporate-risk.html" class="footer__link">Corporate Risk Management</a>
+          <a href="services/management-risk.html" class="footer__link">Management Risk</a>
+          <a href="services/special-needs.html" class="footer__link">Special Needs Planning</a>
         </div>
       </div>
       <div class="footer__bottom">
-        <p class="footer__copyright">&copy; 2026 Rayvern Chng. All rights reserved.</p>
+        <p class="footer__copyright">&copy; 2021&ndash;2026 Kairossky. All rights reserved.</p>
         <p class="footer__disclaimer">This website is for informational purposes only and does not constitute financial advice. Please consult a qualified financial advisor for personalised recommendations. Rayvern Chng is a representative licensed under the Monetary Authority of Singapore (MAS) regulatory framework.</p>
       </div>
     </div>

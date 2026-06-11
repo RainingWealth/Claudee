@@ -15,7 +15,7 @@
   <meta property="og:title" content="Rayvern Chng | Financial Advisor, Estate Planner &amp; Insurance Specialist in Singapore">
   <meta property="og:description" content="Protecting your business, your family, and your legacy. Certified financial advisor specialising in corporate insurance, estate planning, and special needs advisory.">
   <meta property="og:url" content="https://www.rayvernchng.com/">
-  <meta property="og:site_name" content="Rayvern Chng — Financial Advisory">
+  <meta property="og:site_name" content="Kairossky">
   <meta property="og:locale" content="en_SG">
 
   <!-- Twitter Card -->
@@ -29,7 +29,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/styles.css">
@@ -130,20 +130,25 @@
   <header>
     <nav class="nav" id="mainNav" aria-label="Main navigation">
       <div class="container nav__inner">
-        <a href="index.html" class="nav__brand" aria-label="Rayvern Chng — Home">Rayvern Chng</a>
-
+        <a href="index.html" class="nav__brand">Kairossky</a>
         <ul class="nav__links" role="list">
           <li><a href="index.html" class="nav__link nav__link--active">Home</a></li>
           <li><a href="about.html" class="nav__link">About</a></li>
-          <li><a href="services.html" class="nav__link">Services</a></li>
+          <li class="nav__dropdown">
+            <a href="services.html" class="nav__link">Services</a>
+            <div class="nav__dropdown-menu">
+              <a href="services/wealth-management.html" class="nav__dropdown-link">Wealth Management</a>
+              <a href="services/estate-planning.html" class="nav__dropdown-link">Estate Planning</a>
+              <a href="services/corporate-risk.html" class="nav__dropdown-link">Corporate Risk Management</a>
+              <a href="services/management-risk.html" class="nav__dropdown-link">Management Risk</a>
+              <a href="services/special-needs.html" class="nav__dropdown-link">Special Needs Planning</a>
+            </div>
+          </li>
           <li><a href="resources.html" class="nav__link">Resources</a></li>
           <li><a href="contact.html" class="btn btn--primary btn--sm">Book a Consultation</a></li>
         </ul>
-
         <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
       </div>
     </nav>
@@ -153,6 +158,11 @@
       <a href="index.html" class="mobile-menu__link">Home</a>
       <a href="about.html" class="mobile-menu__link">About</a>
       <a href="services.html" class="mobile-menu__link">Services</a>
+      <a href="services/wealth-management.html" class="mobile-menu__link mobile-menu__link--sub">Wealth Management</a>
+      <a href="services/estate-planning.html" class="mobile-menu__link mobile-menu__link--sub">Estate Planning</a>
+      <a href="services/corporate-risk.html" class="mobile-menu__link mobile-menu__link--sub">Corporate Risk Management</a>
+      <a href="services/management-risk.html" class="mobile-menu__link mobile-menu__link--sub">Management Risk</a>
+      <a href="services/special-needs.html" class="mobile-menu__link mobile-menu__link--sub">Special Needs Planning</a>
       <a href="resources.html" class="mobile-menu__link">Resources</a>
       <a href="contact.html" class="mobile-menu__link">Contact</a>
       <a href="contact.html" class="btn btn--primary btn--lg mt-6">Book a Consultation</a>
@@ -165,7 +175,7 @@
     <section class="hero" aria-label="Introduction">
       <div class="container">
         <div class="hero__content">
-          <span class="hero__badge">Trusted Financial Advisor in Singapore</span>
+          <span class="hero__badge">Kairossky &mdash; Timely Advice</span>
           <h1 class="hero__title">Protecting What Matters Most&mdash;Your Business, Your Family, Your Legacy</h1>
           <p class="hero__subtitle">As a certified financial advisor and MDRT qualifier, I help business owners and corporate leaders in Singapore safeguard their enterprises, plan their estates, and secure their families' futures&mdash;including those with special needs.</p>
           <div class="hero__actions">
@@ -230,20 +240,20 @@
         </div>
 
         <div class="grid grid--4">
-          <!-- Service 1: Business/Corporate Insurance -->
+          <!-- Service 1: Corporate Risk Management -->
           <article class="card reveal reveal-delay-1">
             <div class="card__icon" aria-hidden="true"><i data-lucide="building-2" class="lucide-icon"></i></div>
-            <h3 class="card__title">Business &amp; Corporate Insurance</h3>
+            <h3 class="card__title">Corporate Risk Management</h3>
             <p class="card__text">Protect your enterprise against unforeseen risks. From key person insurance to group coverage, I design corporate insurance strategies that keep your business resilient and your team secure.</p>
-            <a href="services.html#business-insurance" class="card__link">Discover More</a>
+            <a href="services/corporate-risk.html" class="card__link">Discover More</a>
           </article>
 
-          <!-- Service 2: Financial Advisory -->
+          <!-- Service 2: Wealth Management -->
           <article class="card reveal reveal-delay-2">
             <div class="card__icon" aria-hidden="true"><i data-lucide="trending-up" class="lucide-icon"></i></div>
-            <h3 class="card__title">Financial Advisory</h3>
+            <h3 class="card__title">Wealth Management</h3>
             <p class="card__text">Build, grow, and preserve your wealth with a structured financial plan. I help you navigate investment strategies, retirement planning, and wealth accumulation with precision and clarity.</p>
-            <a href="services.html#financial-advisory" class="card__link">Discover More</a>
+            <a href="services/wealth-management.html" class="card__link">Discover More</a>
           </article>
 
           <!-- Service 3: Estate Planning -->
@@ -251,15 +261,23 @@
             <div class="card__icon" aria-hidden="true"><i data-lucide="landmark" class="lucide-icon"></i></div>
             <h3 class="card__title">Estate Planning</h3>
             <p class="card__text">Ensure your legacy is preserved and transferred exactly as you intend. I guide you through wills, trusts, succession planning, and wealth transfer strategies tailored to Singapore law.</p>
-            <a href="services.html#estate-planning" class="card__link">Discover More</a>
+            <a href="services/estate-planning.html" class="card__link">Discover More</a>
           </article>
 
-          <!-- Service 4: Special Needs Advisory -->
+          <!-- Service 4: Special Needs Planning -->
           <article class="card reveal reveal-delay-4">
             <div class="card__icon" aria-hidden="true"><i data-lucide="heart" class="lucide-icon"></i></div>
-            <h3 class="card__title">Special Needs Advisory</h3>
+            <h3 class="card__title">Special Needs Planning</h3>
             <p class="card__text">Create lasting financial security for loved ones with special needs. I specialise in SNTC trusts, CPF Special Needs Savings Scheme, and comprehensive care planning that gives families peace of mind.</p>
-            <a href="services.html#special-needs" class="card__link">Discover More</a>
+            <a href="services/special-needs.html" class="card__link">Discover More</a>
+          </article>
+
+          <!-- Service 5: Management Risk -->
+          <article class="card reveal reveal-delay-5">
+            <div class="card__icon" aria-hidden="true"><i data-lucide="shield" class="lucide-icon"></i></div>
+            <h3 class="card__title">Management Risk</h3>
+            <p class="card__text">Identify and mitigate leadership and governance risks that threaten your organisation. I help business owners build robust risk frameworks that safeguard decision-making and operational continuity.</p>
+            <a href="services/management-risk.html" class="card__link">Discover More</a>
           </article>
         </div>
       </div>
@@ -370,12 +388,12 @@
     <div class="container">
       <div class="footer__top">
         <div>
-          <div class="footer__brand">Rayvern Chng</div>
-          <p class="footer__desc">Certified financial advisor in Singapore specialising in business insurance, estate planning, financial advisory, and special needs planning for business owners and corporate leaders.</p>
+          <div class="footer__brand">Kairossky</div>
+          <p class="footer__desc">Kairossky &mdash; timely advice for business owners and corporate leaders. Rayvern Chng is a certified financial advisor in Singapore specialising in corporate risk management, wealth management, estate planning, and special needs planning.</p>
           <div class="footer__socials mt-4">
-            <a href="#" class="footer__social" aria-label="LinkedIn"><i data-lucide="linkedin" class="lucide-icon"></i></a>
-            <a href="#" class="footer__social" aria-label="Facebook"><i data-lucide="facebook" class="lucide-icon"></i></a>
-            <a href="#" class="footer__social" aria-label="Instagram"><i data-lucide="instagram" class="lucide-icon"></i></a>
+            <a href="https://www.linkedin.com/in/rayvern" class="footer__social" aria-label="LinkedIn"><i data-lucide="linkedin" class="lucide-icon"></i></a>
+            <a href="https://www.facebook.com/Kairossky-105810341659005" class="footer__social" aria-label="Facebook"><i data-lucide="facebook" class="lucide-icon"></i></a>
+            <a href="https://wa.me/6583823194" class="footer__social" aria-label="WhatsApp"><i data-lucide="message-circle" class="lucide-icon"></i></a>
           </div>
         </div>
         <div>
@@ -388,14 +406,15 @@
         </div>
         <div>
           <div class="footer__heading">Services</div>
-          <a href="services.html#business-insurance" class="footer__link">Business Insurance</a>
-          <a href="services.html#financial-advisory" class="footer__link">Financial Advisory</a>
-          <a href="services.html#estate-planning" class="footer__link">Estate Planning</a>
-          <a href="services.html#special-needs" class="footer__link">Special Needs Advisory</a>
+          <a href="services/corporate-risk.html" class="footer__link">Corporate Risk Management</a>
+          <a href="services/wealth-management.html" class="footer__link">Wealth Management</a>
+          <a href="services/estate-planning.html" class="footer__link">Estate Planning</a>
+          <a href="services/management-risk.html" class="footer__link">Management Risk</a>
+          <a href="services/special-needs.html" class="footer__link">Special Needs Planning</a>
         </div>
       </div>
       <div class="footer__bottom">
-        <p class="footer__copyright">&copy; 2026 Rayvern Chng. All rights reserved.</p>
+        <p class="footer__copyright">&copy; 2021-2026 Kairossky. All rights reserved.</p>
         <p class="footer__disclaimer">This website is for informational purposes only and does not constitute financial advice. Please consult a qualified financial advisor for personalised recommendations. Rayvern Chng is a representative licensed under the Monetary Authority of Singapore (MAS) regulatory framework.</p>
       </div>
     </div>

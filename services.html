@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services | Business Insurance, Financial Advisory, Estate Planning &amp; Special Needs — Rayvern Chng</title>
+  <title>Services | Kairossky — Financial Advisory</title>
   <meta name="description" content="Comprehensive financial services for Singapore business owners: corporate insurance, key person coverage, financial advisory, estate planning, and special needs advisory. Certified CFP, AEPP, MDRT advisor Rayvern Chng.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.rayvernchng.com/services.html">
@@ -13,14 +13,14 @@
   <meta property="og:title" content="Professional Services | Rayvern Chng — Financial Advisor in Singapore">
   <meta property="og:description" content="Business insurance, financial advisory, estate planning, and special needs advisory services for Singapore's business owners and corporate leaders.">
   <meta property="og:url" content="https://www.rayvernchng.com/services.html">
-  <meta property="og:site_name" content="Rayvern Chng — Financial Advisory">
+  <meta property="og:site_name" content="Kairossky">
   <meta property="og:locale" content="en_SG">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/styles.css">
@@ -97,21 +97,24 @@
   <header>
     <nav class="nav nav--scrolled" id="mainNav" aria-label="Main navigation">
       <div class="container nav__inner">
-        <a href="index.html" class="nav__brand" aria-label="Rayvern Chng — Home">Rayvern Chng</a>
-
+        <a href="index.html" class="nav__brand">Kairossky</a>
         <ul class="nav__links" role="list">
           <li><a href="index.html" class="nav__link">Home</a></li>
           <li><a href="about.html" class="nav__link">About</a></li>
-          <li><a href="services.html" class="nav__link nav__link--active">Services</a></li>
+          <li class="nav__dropdown">
+            <a href="services.html" class="nav__link nav__link--active">Services</a>
+            <div class="nav__dropdown-menu">
+              <a href="services/wealth-management.html" class="nav__dropdown-link">Wealth Management</a>
+              <a href="services/estate-planning.html" class="nav__dropdown-link">Estate Planning</a>
+              <a href="services/corporate-risk.html" class="nav__dropdown-link">Corporate Risk Management</a>
+              <a href="services/management-risk.html" class="nav__dropdown-link">Management Risk</a>
+              <a href="services/special-needs.html" class="nav__dropdown-link">Special Needs Planning</a>
+            </div>
+          </li>
           <li><a href="resources.html" class="nav__link">Resources</a></li>
           <li><a href="contact.html" class="btn btn--primary btn--sm">Book a Consultation</a></li>
         </ul>
-
-        <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </nav>
 
@@ -119,7 +122,12 @@
     <div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
       <a href="index.html" class="mobile-menu__link">Home</a>
       <a href="about.html" class="mobile-menu__link">About</a>
-      <a href="services.html" class="mobile-menu__link">Services</a>
+      <a href="services.html" class="mobile-menu__link mobile-menu__link--active">Services</a>
+      <a href="services/wealth-management.html" class="mobile-menu__link mobile-menu__sublink">Wealth Management</a>
+      <a href="services/estate-planning.html" class="mobile-menu__link mobile-menu__sublink">Estate Planning</a>
+      <a href="services/corporate-risk.html" class="mobile-menu__link mobile-menu__sublink">Corporate Risk Management</a>
+      <a href="services/management-risk.html" class="mobile-menu__link mobile-menu__sublink">Management Risk</a>
+      <a href="services/special-needs.html" class="mobile-menu__link mobile-menu__sublink">Special Needs Planning</a>
       <a href="resources.html" class="mobile-menu__link">Resources</a>
       <a href="contact.html" class="mobile-menu__link">Contact</a>
       <a href="contact.html" class="btn btn--primary btn--lg mt-6">Book a Consultation</a>
@@ -131,201 +139,95 @@
     <!-- ============ PAGE HERO ============ -->
     <section class="page-hero" aria-label="Services page header">
       <div class="container">
-        <span class="subheading">What I Offer</span>
-        <h1>Professional Services</h1>
-        <p>Strategic financial solutions for Singapore business owners &mdash; designed to protect your enterprise, grow your wealth, and secure your family's future across every stage of life.</p>
+        <span class="subheading">Our Services</span>
+        <h1>What We Do</h1>
+        <p>Kairossky provides comprehensive financial advisory services &mdash; from wealth management and estate planning to corporate risk mitigation and special needs planning. Every solution is tailored to protect what matters most and position you for long-term success.</p>
       </div>
     </section>
 
-    <!-- ============ SERVICE 1: BUSINESS INSURANCE ============ -->
-    <section class="section" id="business-insurance" aria-label="Business and Corporate Insurance">
+    <!-- ============ SERVICES GRID ============ -->
+    <section class="section" aria-label="Our services overview">
       <div class="container">
-        <div class="service-detail">
-          <div class="service-detail__inner">
-            <div class="service-detail__content">
-              <span class="service-detail__label reveal">Service 01</span>
-              <h2 class="reveal">Business &amp; Corporate Insurance</h2>
-              <p class="service-detail__text reveal">In Singapore, SMEs make up 99% of all enterprises &mdash; yet studies show that over 60% lack adequate key person coverage. What would happen to your business if you or a key partner could no longer work tomorrow? For most, the honest answer is: revenue drops, credit lines freeze, and clients walk. Business insurance isn't about compliance &mdash; it's about ensuring the enterprise you've built can survive the unexpected.</p>
-              <p class="service-detail__text reveal">I work with business owners, managing directors, and HR leaders across industries &mdash; from tech startups to established F&amp;B groups &mdash; to design corporate insurance strategies that protect against personnel loss, ensure employee welfare, and maintain operational continuity. Every solution is benchmarked against Singapore's regulatory requirements and your industry's specific risk profile.</p>
+        <div class="grid grid--3">
 
-              <div class="service-detail__features reveal">
-                <div class="service-detail__feature">
-                  <div class="service-detail__feature-icon" aria-hidden="true"><i data-lucide="check" class="lucide-icon"></i></div>
-                  <span class="service-detail__feature-text"><strong>Key Person Insurance</strong> &mdash; Protect your business against the financial impact of losing a founder, director, or critical employee. Covers revenue loss, recruitment costs, and debt obligations.</span>
-                </div>
-                <div class="service-detail__feature">
-                  <div class="service-detail__feature-icon" aria-hidden="true"><i data-lucide="check" class="lucide-icon"></i></div>
-                  <span class="service-detail__feature-text"><strong>Group Insurance &amp; Employee Benefits</strong> &mdash; Attract and retain top talent with comprehensive group health, life, and disability coverage tailored to your team's needs and your budget.</span>
-                </div>
-                <div class="service-detail__feature">
-                  <div class="service-detail__feature-icon" aria-hidden="true"><i data-lucide="check" class="lucide-icon"></i></div>
-                  <span class="service-detail__feature-text"><strong>Business Continuity Planning</strong> &mdash; Ensure your operations can continue during disruption. I help structure insurance and financial reserves to keep your business running smoothly.</span>
-                </div>
-                <div class="service-detail__feature">
-                  <div class="service-detail__feature-icon" aria-hidden="true"><i data-lucide="check" class="lucide-icon"></i></div>
-                  <span class="service-detail__feature-text"><strong>Buy-Sell Agreement Funding</strong> &mdash; When a business partner exits, proper funding ensures a smooth transition of ownership without draining business capital.</span>
-                </div>
-              </div>
-
-              <a href="contact.html" class="btn btn--teal reveal">Discuss Your Business Coverage</a>
-            </div>
-            <div class="service-detail__visual reveal--right reveal" aria-hidden="true">
-              <i data-lucide="building-2" class="lucide-icon"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ SERVICE 2: FINANCIAL ADVISORY ============ -->
-    <section class="section section--alt" id="financial-advisory" aria-label="Financial Advisory">
-      <div class="container">
-        <div class="service-detail">
-          <div class="service-detail__inner">
-            <div class="service-detail__visual reveal--left reveal" aria-hidden="true">
+          <a href="services/wealth-management.html" class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true">
               <i data-lucide="trending-up" class="lucide-icon"></i>
             </div>
-            <div class="service-detail__content">
-              <span class="service-detail__label reveal">Service 02</span>
-              <h2 class="reveal">Financial Advisory &amp; Wealth Planning</h2>
-              <p class="service-detail__text reveal">Singapore's median household income crossed S$10,000 per month in 2023 &mdash; yet many high-earning business owners have no structured plan for the wealth they generate. Building wealth is one challenge. Preserving and growing it while managing business cashflow, family obligations, CPF optimisation, and Singapore's evolving regulatory landscape is another entirely.</p>
-              <p class="service-detail__text reveal">I provide personalised financial advisory that goes beyond generic investment advice. Every strategy is built around your specific goals, risk tolerance, and timeline &mdash; integrating your business financials with your personal wealth to create a unified plan. Whether you're in your peak earning years, planning for retirement, or restructuring after a business exit, I help you move from reactive to strategic.</p>
+            <h2 class="service-card__title">Wealth Management</h2>
+            <p class="service-card__text">Strategic wealth accumulation, investment planning, and retirement strategies designed around your goals, risk tolerance, and timeline.</p>
+            <span class="service-card__cta">Learn more &rarr;</span>
+          </a>
 
-              <div class="service-detail__features reveal">
-                <div class="service-detail__feature">
-                  <div class="service-detail__feature-icon" aria-hidden="true"><i data-lucide="check" class="lucide-icon"></i></div>
-                  <span class="service-detail__feature-text"><strong>Wealth Accumulation Strategies</strong> &mdash; Structured investment plans using diversified portfolios, SRS accounts, and tax-efficient vehicles to grow your assets systematically while managing downside risk.</span>
-                </div>
-                <div class="service-detail__feature">
-                  <div class="service-detail__feature-icon" aria-hidden="true"><i data-lucide="check" class="lucide-icon"></i></div>
-                  <span class="service-detail__feature-text"><strong>Retirement Planning</strong> &mdash; Comprehensive retirement projections and income strategies, including CPF optimisation, ensuring you maintain your lifestyle long after you stop working.</span>
-                </div>
-                <div class="service-detail__feature">
-                  <div class="service-detail__feature-icon" aria-hidden="true"><i data-lucide="check" class="lucide-icon"></i></div>
-                  <span class="service-detail__feature-text"><strong>Investment Strategy &amp; Review</strong> &mdash; Regular portfolio reviews and asset allocation advice, helping you stay on track towards your financial goals while adapting to market changes.</span>
-                </div>
-                <div class="service-detail__feature">
-                  <div class="service-detail__feature-icon" aria-hidden="true"><i data-lucide="check" class="lucide-icon"></i></div>
-                  <span class="service-detail__feature-text"><strong>Risk Management &amp; Protection</strong> &mdash; Identify and address gaps in your financial safety net, ensuring your income, health, and critical illness needs are comprehensively covered.</span>
-                </div>
-              </div>
-
-              <a href="contact.html" class="btn btn--teal reveal">Start Your Financial Plan</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ SERVICE 3: ESTATE PLANNING ============ -->
-    <section class="section" id="estate-planning" aria-label="Estate Planning">
-      <div class="container">
-        <div class="service-detail">
-          <div class="service-detail__inner">
-            <div class="service-detail__content">
-              <span class="service-detail__label reveal">Service 03</span>
-              <h2 class="reveal">Estate Planning &amp; Succession</h2>
-              <p class="service-detail__text reveal">More than 60% of Singaporeans still don't have a will. Under the Intestate Succession Act, your assets are distributed by a fixed formula &mdash; one that rarely reflects your actual wishes. For business owners, the consequences can be devastating: probate delays freeze company accounts, shareholder disputes paralyse operations, and a legacy you spent decades building can unravel in months.</p>
-              <p class="service-detail__text reveal">As an Advanced Estate Planning Practitioner (AEPP), I guide business owners, HNW individuals, and multi-generational families through structuring their estates for efficient wealth transfer, dispute prevention, and long-term preservation. My approach integrates business succession with personal estate planning &mdash; covering wills, trusts, LPA, CPF nominations, and insurance nominations as one coordinated strategy.</p>
-
-              <div class="service-detail__features reveal">
-                <div class="service-detail__feature">
-                  <div class="service-detail__feature-icon" aria-hidden="true"><i data-lucide="check" class="lucide-icon"></i></div>
-                  <span class="service-detail__feature-text"><strong>Will Writing &amp; Review</strong> &mdash; Ensure your assets are distributed according to your wishes. I work with legal partners to draft and review wills that reflect your intentions with precision.</span>
-                </div>
-                <div class="service-detail__feature">
-                  <div class="service-detail__feature-icon" aria-hidden="true"><i data-lucide="check" class="lucide-icon"></i></div>
-                  <span class="service-detail__feature-text"><strong>Trust Structures</strong> &mdash; Living trusts, testamentary trusts, and insurance trusts to protect assets, manage distribution timing, and provide for beneficiaries exactly as you intend.</span>
-                </div>
-                <div class="service-detail__feature">
-                  <div class="service-detail__feature-icon" aria-hidden="true"><i data-lucide="check" class="lucide-icon"></i></div>
-                  <span class="service-detail__feature-text"><strong>Business Succession Planning</strong> &mdash; Ensure your company transitions smoothly to the next generation or a chosen successor, preserving value and avoiding operational disruption.</span>
-                </div>
-                <div class="service-detail__feature">
-                  <div class="service-detail__feature-icon" aria-hidden="true"><i data-lucide="check" class="lucide-icon"></i></div>
-                  <span class="service-detail__feature-text"><strong>Lasting Power of Attorney (LPA)</strong> &mdash; Appoint trusted individuals to make decisions on your behalf should you become mentally incapacitated. Essential for every business owner.</span>
-                </div>
-              </div>
-
-              <a href="contact.html" class="btn btn--teal reveal">Plan Your Estate</a>
-            </div>
-            <div class="service-detail__visual reveal--right reveal" aria-hidden="true">
+          <a href="services/estate-planning.html" class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true">
               <i data-lucide="landmark" class="lucide-icon"></i>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+            <h2 class="service-card__title">Estate Planning</h2>
+            <p class="service-card__text">Wills, trusts, succession planning, and wealth transfer strategies to preserve your legacy and protect your beneficiaries.</p>
+            <span class="service-card__cta">Learn more &rarr;</span>
+          </a>
 
-    <!-- ============ SERVICE 4: SPECIAL NEEDS ADVISORY ============ -->
-    <section class="section section--alt" id="special-needs" aria-label="Special Needs Advisory">
-      <div class="container">
-        <div class="service-detail">
-          <div class="service-detail__inner">
-            <div class="service-detail__visual reveal--left reveal" aria-hidden="true">
+          <a href="services/corporate-risk.html" class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true">
+              <i data-lucide="building-2" class="lucide-icon"></i>
+            </div>
+            <h2 class="service-card__title">Corporate Risk Management</h2>
+            <p class="service-card__text">Key person coverage, group insurance, business continuity planning, and buy-sell agreement funding for enterprises of every size.</p>
+            <span class="service-card__cta">Learn more &rarr;</span>
+          </a>
+
+          <a href="services/management-risk.html" class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true">
+              <i data-lucide="shield-alert" class="lucide-icon"></i>
+            </div>
+            <h2 class="service-card__title">Management Risk</h2>
+            <p class="service-card__text">Identify, assess, and mitigate leadership and operational risks that threaten business stability and long-term growth.</p>
+            <span class="service-card__cta">Learn more &rarr;</span>
+          </a>
+
+          <a href="services/special-needs.html" class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true">
               <i data-lucide="heart" class="lucide-icon"></i>
             </div>
-            <div class="service-detail__content">
-              <span class="service-detail__label reveal">Service 04</span>
-              <h2 class="reveal">Special Needs Advisory</h2>
-              <p class="service-detail__text reveal">For parents and caregivers of loved ones with special needs, one question weighs heaviest: "Who will take care of them when I'm gone?" In Singapore, approximately 3&ndash;5% of the population lives with some form of disability &mdash; yet many families lack a structured financial plan for lifelong care. A generic financial plan won't work here. This requires specialised knowledge and deep empathy.</p>
-              <p class="service-detail__text reveal">I create comprehensive financial plans for families with special needs dependants, drawing on Singapore's dedicated support infrastructure &mdash; SNTC trusts, CPF SNSS, Enabling Masterplan initiatives, and specialised insurance structures. I work closely with families to understand not just the financial picture, but the daily realities of caregiving, the support networks in place, and the long-term care vision. My goal is to give you certainty &mdash; that your loved one will be cared for with dignity and security, no matter what the future holds.</p>
+            <h2 class="service-card__title">Special Needs Planning</h2>
+            <p class="service-card__text">Specialised financial plans for families with special needs dependants &mdash; SNTC trusts, CPF SNSS, insurance structures, and lifelong care funding.</p>
+            <span class="service-card__cta">Learn more &rarr;</span>
+          </a>
 
-              <div class="service-detail__features reveal">
-                <div class="service-detail__feature">
-                  <div class="service-detail__feature-icon" aria-hidden="true"><i data-lucide="check" class="lucide-icon"></i></div>
-                  <span class="service-detail__feature-text"><strong>SNTC Trust Planning</strong> &mdash; The Special Needs Trust Company (SNTC) is Singapore's only non-profit trust company dedicated to persons with special needs. I help families set up and fund SNTC trusts to provide long-term financial security.</span>
-                </div>
-                <div class="service-detail__feature">
-                  <div class="service-detail__feature-icon" aria-hidden="true"><i data-lucide="check" class="lucide-icon"></i></div>
-                  <span class="service-detail__feature-text"><strong>CPF Special Needs Savings Scheme (SNSS)</strong> &mdash; Nominate your CPF savings to provide regular monthly payouts to your special needs dependant, rather than a lump sum. I guide families through the application and optimisation process.</span>
-                </div>
-                <div class="service-detail__feature">
-                  <div class="service-detail__feature-icon" aria-hidden="true"><i data-lucide="check" class="lucide-icon"></i></div>
-                  <span class="service-detail__feature-text"><strong>Insurance &amp; Care Funding</strong> &mdash; Structure insurance policies to fund long-term care, therapy, and living expenses for your special needs loved one, with proceeds channelled through appropriate trust structures.</span>
-                </div>
-                <div class="service-detail__feature">
-                  <div class="service-detail__feature-icon" aria-hidden="true"><i data-lucide="check" class="lucide-icon"></i></div>
-                  <span class="service-detail__feature-text"><strong>Letter of Intent &amp; Care Plan</strong> &mdash; Document your loved one's routines, preferences, medical needs, and care instructions to ensure continuity of care regardless of changes in caregivers.</span>
-                </div>
-              </div>
-
-              <a href="contact.html" class="btn btn--teal reveal">Discuss Special Needs Planning</a>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
     <!-- ============ PROCESS SECTION ============ -->
-    <section class="section section--dark" aria-label="My process">
+    <section class="section section--dark" aria-label="Our process">
       <div class="container">
         <div class="section__header reveal">
-          <span class="subheading text-orange">My Process</span>
+          <span class="subheading text-orange">Our Process</span>
           <h2>How We Work Together</h2>
-          <p style="color: rgba(255,255,255,0.6);">Every engagement follows a structured, four-stage process &mdash; designed for transparency, precision, and long-term partnership. No surprises, no pressure, no cookie-cutter advice.</p>
+          <p class="section__header-desc">Every engagement follows a structured, four-stage process &mdash; designed for transparency, precision, and long-term partnership. No surprises, no pressure, no cookie-cutter advice.</p>
         </div>
 
-        <div class="grid grid--4" style="text-align: center;">
-          <div class="reveal reveal-delay-1">
-            <div style="font-family: var(--font-heading); font-size: var(--text-4xl); color: var(--color-accent-gold); margin-bottom: var(--space-3);">01</div>
-            <h3 style="font-size: var(--text-lg); color: var(--color-white); margin-bottom: var(--space-2);">Discovery</h3>
-            <p style="font-size: var(--text-sm); color: rgba(255,255,255,0.5);">A complimentary, no-obligation conversation to understand your business, family situation, goals, and concerns in depth.</p>
+        <div class="process-steps">
+          <div class="process-step reveal reveal-delay-1">
+            <div class="process-step__number">01</div>
+            <h3 class="process-step__title">Discovery</h3>
+            <p class="process-step__text">A complimentary, no-obligation conversation to understand your business, family situation, goals, and concerns in depth.</p>
           </div>
-          <div class="reveal reveal-delay-2">
-            <div style="font-family: var(--font-heading); font-size: var(--text-4xl); color: var(--color-accent-gold); margin-bottom: var(--space-3);">02</div>
-            <h3 style="font-size: var(--text-lg); color: var(--color-white); margin-bottom: var(--space-2);">Analysis</h3>
-            <p style="font-size: var(--text-sm); color: rgba(255,255,255,0.5);">A thorough review of your financial position, coverage gaps, asset structure, and risk exposure &mdash; benchmarked against your objectives.</p>
+          <div class="process-step reveal reveal-delay-2">
+            <div class="process-step__number">02</div>
+            <h3 class="process-step__title">Analysis</h3>
+            <p class="process-step__text">A thorough review of your financial position, coverage gaps, asset structure, and risk exposure &mdash; benchmarked against your objectives.</p>
           </div>
-          <div class="reveal reveal-delay-3">
-            <div style="font-family: var(--font-heading); font-size: var(--text-4xl); color: var(--color-accent-gold); margin-bottom: var(--space-3);">03</div>
-            <h3 style="font-size: var(--text-lg); color: var(--color-white); margin-bottom: var(--space-2);">Strategy</h3>
-            <p style="font-size: var(--text-sm); color: rgba(255,255,255,0.5);">A clear, prioritised action plan with specific recommendations, projected outcomes, and transparent cost breakdowns.</p>
+          <div class="process-step reveal reveal-delay-3">
+            <div class="process-step__number">03</div>
+            <h3 class="process-step__title">Strategy</h3>
+            <p class="process-step__text">A clear, prioritised action plan with specific recommendations, projected outcomes, and transparent cost breakdowns.</p>
           </div>
-          <div class="reveal reveal-delay-4">
-            <div style="font-family: var(--font-heading); font-size: var(--text-4xl); color: var(--color-accent-gold); margin-bottom: var(--space-3);">04</div>
-            <h3 style="font-size: var(--text-lg); color: var(--color-white); margin-bottom: var(--space-2);">Partnership</h3>
-            <p style="font-size: var(--text-sm); color: rgba(255,255,255,0.5);">Ongoing implementation support with annual reviews to adapt your plan as your business grows and circumstances evolve.</p>
+          <div class="process-step reveal reveal-delay-4">
+            <div class="process-step__number">04</div>
+            <h3 class="process-step__title">Partnership</h3>
+            <p class="process-step__text">Ongoing implementation support with annual reviews to adapt your plan as your business grows and circumstances evolve.</p>
           </div>
         </div>
       </div>
@@ -335,7 +237,7 @@
     <section class="cta-band" aria-label="Call to action">
       <div class="container reveal">
         <h2>Let's Build Your Financial Strategy</h2>
-        <p>Every great plan starts with a conversation. Tell me about your goals and I'll show you how we can protect and grow what matters most.</p>
+        <p>Every great plan starts with a conversation. Tell us about your goals and we'll show you how we can protect and grow what matters most.</p>
         <a href="contact.html" class="btn btn--primary btn--lg">Schedule a Consultation</a>
       </div>
     </section>
@@ -346,12 +248,12 @@
     <div class="container">
       <div class="footer__top">
         <div>
-          <div class="footer__brand">Rayvern Chng</div>
-          <p class="footer__desc">Certified financial advisor in Singapore specialising in business insurance, estate planning, financial advisory, and special needs planning for business owners and corporate leaders.</p>
+          <div class="footer__brand">Kairossky</div>
+          <p class="footer__desc">Comprehensive financial advisory services &mdash; wealth management, estate planning, corporate risk management, and special needs planning for individuals, families, and businesses.</p>
           <div class="footer__socials mt-4">
             <a href="#" class="footer__social" aria-label="LinkedIn"><i data-lucide="linkedin" class="lucide-icon"></i></a>
             <a href="#" class="footer__social" aria-label="Facebook"><i data-lucide="facebook" class="lucide-icon"></i></a>
-            <a href="#" class="footer__social" aria-label="Instagram"><i data-lucide="instagram" class="lucide-icon"></i></a>
+            <a href="#" class="footer__social" aria-label="WhatsApp"><i data-lucide="message-circle" class="lucide-icon"></i></a>
           </div>
         </div>
         <div>
@@ -364,15 +266,16 @@
         </div>
         <div>
           <div class="footer__heading">Services</div>
-          <a href="services.html#business-insurance" class="footer__link">Business Insurance</a>
-          <a href="services.html#financial-advisory" class="footer__link">Financial Advisory</a>
-          <a href="services.html#estate-planning" class="footer__link">Estate Planning</a>
-          <a href="services.html#special-needs" class="footer__link">Special Needs Advisory</a>
+          <a href="services/wealth-management.html" class="footer__link">Wealth Management</a>
+          <a href="services/estate-planning.html" class="footer__link">Estate Planning</a>
+          <a href="services/corporate-risk.html" class="footer__link">Corporate Risk Management</a>
+          <a href="services/management-risk.html" class="footer__link">Management Risk</a>
+          <a href="services/special-needs.html" class="footer__link">Special Needs Planning</a>
         </div>
       </div>
       <div class="footer__bottom">
-        <p class="footer__copyright">&copy; 2026 Rayvern Chng. All rights reserved.</p>
-        <p class="footer__disclaimer">This website is for informational purposes only and does not constitute financial advice. Please consult a qualified financial advisor for personalised recommendations. Rayvern Chng is a representative licensed under the Monetary Authority of Singapore (MAS) regulatory framework.</p>
+        <p class="footer__copyright">&copy; 2021&ndash;2026 Kairossky. All rights reserved.</p>
+        <p class="footer__disclaimer">This website is for informational purposes only and does not constitute financial advice. Please consult a qualified financial advisor for personalised recommendations.</p>
       </div>
     </div>
   </footer>
