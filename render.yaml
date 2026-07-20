@@ -1,0 +1,26 @@
+databases:
+  - name: fund-tracker-db
+    plan: free          # 1 GB Postgres, free tier (expires after 30 days — upgrade to keep)
+
+services:
+  - type: web
+    name: fund-tracker-backend
+    rootDir: fund-tracker/backend
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: fund-tracker-db
+          property: connectionString
+      - key: FRONTEND_URL
+        sync: false   # Set this to your Netlify URL after first deploy
+      - key: DEMO_MODE
+        value: "false"
+      - key: LOG_LEVEL
+        value: INFO
+      # Optional — add in Render dashboard if needed:
+      # - key: NEWSAPI_KEY
+      # - key: OPENFIGI_API_KEY
+      # - key: OPENAI_API_KEY

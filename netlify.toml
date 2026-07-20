@@ -1,0 +1,13 @@
+[build]
+  base    = "fund-tracker/frontend"
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Set NEXT_PUBLIC_API_URL in Netlify env vars to your Render backend URL.
+# next.config.mjs rewrites /api/v1/* → that URL at build time.
