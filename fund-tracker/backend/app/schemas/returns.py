@@ -33,3 +33,8 @@ class ChartResponse(BaseModel):
     fund_id: int
     period: str
     series: list[ChartPoint]
+
+
+class PricesResponse(BaseModel):
+    fund_id: int
+    series: list[ChartPoint]

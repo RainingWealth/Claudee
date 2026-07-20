@@ -53,6 +53,18 @@ export async function getChart(fundId: number, period: string): Promise<ChartDat
   return apiFetch<ChartData>(`/funds/${fundId}/chart?period=${period}`);
 }
 
+export async function getPrices(
+  fundId: number,
+  start?: string,
+  end?: string
+): Promise<ChartData> {
+  const qs = new URLSearchParams();
+  if (start) qs.set("start", start);
+  if (end) qs.set("end", end);
+  const suffix = qs.toString() ? `?${qs.toString()}` : "";
+  return apiFetch<ChartData>(`/funds/${fundId}/prices${suffix}`);
+}
+
 // ── News ───────────────────────────────────────────────────────────────────────
 
 export async function getNews(fundId: number, refresh = false): Promise<NewsItem[]> {

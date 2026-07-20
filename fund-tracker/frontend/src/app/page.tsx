@@ -3,7 +3,10 @@
 import { useState } from "react";
 import { FundSearchBar } from "@/components/fund/FundSearchBar";
 import { FundGrid } from "@/components/fund/FundGrid";
+import { FundListView } from "@/components/fund/FundListView";
+import { ViewToggle } from "@/components/fund/ViewToggle";
 import { useFundList } from "@/hooks/useFundData";
+import { useViewMode } from "@/hooks/useViewMode";
 import { deleteFund, seedDemo } from "@/lib/api";
 import { Button } from "@/components/ui/Button";
 import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
@@ -11,6 +14,7 @@ import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
 export default function HomePage() {
   const { data: funds, isLoading, mutate } = useFundList();
   const [seeding, setSeeding] = useState(false);
+  const [view, setView] = useViewMode();
 
   async function handleDelete(id: number) {
     if (!confirm("Remove this fund from your tracker?")) return;
@@ -57,7 +61,7 @@ export default function HomePage() {
         </div>
       ) : (
         <>
-          {(!funds || funds.length === 0) && (
+          {(!funds || funds.length === 0) ? (
             <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 text-center">
               <p className="text-sm text-blue-700 mb-3">
                 No funds yet. Try the demo to see how it works.
@@ -66,8 +70,16 @@ export default function HomePage() {
                 {seeding ? "Loading demo..." : "Load Demo Funds"}
               </Button>
             </div>
+          ) : (
+            <div className="flex justify-end">
+              <ViewToggle value={view} onChange={setView} />
+            </div>
           )}
-          <FundGrid funds={funds || []} onDelete={handleDelete} />
+          {view === "grid" ? (
+            <FundGrid funds={funds || []} onDelete={handleDelete} />
+          ) : (
+            <FundListView funds={funds || []} onDelete={handleDelete} />
+          )}
         </>
       )}
 

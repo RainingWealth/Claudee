@@ -1,11 +1,17 @@
 """Return calculation and chart data endpoints."""
+from datetime import date as date_type
+
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 
 from ..database import get_db
 from ..models.fund import Fund
-from ..schemas.returns import ReturnsResponse, ReturnWindowSchema, ChartResponse, ChartPoint
-from ..services.returns_service import get_returns_for_fund, get_chart_series
+from ..schemas.returns import (
+    ReturnsResponse, ReturnWindowSchema, ChartResponse, ChartPoint, PricesResponse,
+)
+from ..services.returns_service import (
+    get_returns_for_fund, get_chart_series, _price_series_for_fund,
+)
 
 router = APIRouter(prefix="/funds", tags=["returns"])
 
@@ -58,5 +64,33 @@ def get_chart(
     return ChartResponse(
         fund_id=fund_id,
         period=period,
+        series=[ChartPoint(date=d, nav=n) for d, n in series],
+    )
+
+
+@router.get("/{fund_id}/prices", response_model=PricesResponse)
+def get_prices(
+    fund_id: int,
+    start: date_type | None = None,
+    end: date_type | None = None,
+    db: Session = Depends(get_db),
+):
+    """Return the NAV series for a fund, optionally bounded by start/end date.
+
+    Unlike /chart (capped at 5y periods), this supports arbitrary date
+    ranges — needed for portfolio buy-in dates older than 5 years.
+    """
+    fund = db.query(Fund).filter(Fund.id == fund_id).first()
+    if not fund:
+        raise HTTPException(status_code=404, detail=f"Fund {fund_id} not found")
+
+    series = _price_series_for_fund(db, fund_id)
+    if start:
+        series = [(d, n) for d, n in series if d >= start]
+    if end:
+        series = [(d, n) for d, n in series if d <= end]
+
+    return PricesResponse(
+        fund_id=fund_id,
         series=[ChartPoint(date=d, nav=n) for d, n in series],
     )
