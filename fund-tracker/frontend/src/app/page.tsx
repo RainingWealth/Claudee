@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { FundSearchBar } from "@/components/fund/FundSearchBar";
+import { BulkAddFunds } from "@/components/fund/BulkAddFunds";
 import { FundGrid } from "@/components/fund/FundGrid";
 import { FundListView } from "@/components/fund/FundListView";
 import { ViewToggle } from "@/components/fund/ViewToggle";
@@ -52,6 +53,7 @@ export default function HomePage() {
       <div className="bg-white border border-gray-200 rounded-xl p-5">
         <h2 className="text-sm font-semibold text-gray-700 mb-3">Add a Fund</h2>
         <FundSearchBar onFundAdded={() => mutate()} />
+        <BulkAddFunds onDone={() => mutate()} />
       </div>
 
       {/* Fund grid */}

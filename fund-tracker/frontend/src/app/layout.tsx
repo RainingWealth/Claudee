@@ -24,6 +24,7 @@ export default function RootLayout({
               </a>
               <nav className="flex items-center gap-4 text-sm">
                 <a href="/" className="text-gray-600 hover:text-gray-900">Dashboard</a>
+                <a href="/portfolio" className="text-gray-600 hover:text-gray-900">Portfolios</a>
                 <a href="/upload" className="text-gray-600 hover:text-gray-900">Upload CSV</a>
               </nav>
             </div>
